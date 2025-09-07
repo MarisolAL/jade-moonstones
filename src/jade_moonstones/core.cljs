@@ -1,5 +1,6 @@
 (ns jade-moonstones.core
-  (:require [jade-moonstones.events :as events]
+  (:require [jade-moonstones.components.hero-ui :as hero-ui]
+            [jade-moonstones.events :as events]
             [jade-moonstones.subs :as subs]
             [reagent.core :as rg]
             [reagent.dom :as rd]
@@ -8,9 +9,12 @@
 
  
 (defn home-page []
-  [:div
-   [:h1 "Hellooooo"]
-   [:h1 {:style {:color "hotpink"}} @(rf/subscribe [::subs/message])]])
+  [:div.main_container 
+   [:h1 {:style {:color "hotpink"}} @(rf/subscribe [::subs/message])]
+   #_[:div {:class "dark"}
+    [hero-ui/button {:color "primary"} "Click me!"]
+    [hero-ui/button {:color "secondary"} "Click me!"]]
+   ])
 
 (defonce root (delay (rdc/create-root (.getElementById js/document "app"))))
 

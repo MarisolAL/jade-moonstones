@@ -18,8 +18,15 @@
   },
   "homepage": "https://github.com/MarisolAL/jade-moonstones#readme",
   "dependencies": {
+    "@emotion/is-prop-valid": "^1.4.0",
+    "@heroui/react": "^2.8.3",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "shadow-cljs": "^3.2.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.17"
   }
 }
