@@ -11,7 +11,7 @@
  {:app {:target     :browser
         :output-dir "public/js"
         :asset-path "/js"
-        :modules    {:main {:init-fn jade-moonstones.core/init}}
+        :modules    {:main {:init-fn jade-moonstones.core/init}} 
         :devtools   {:http-root "public"
                      :http-port 3000}}
 

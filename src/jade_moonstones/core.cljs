@@ -1,30 +1,22 @@
 (ns jade-moonstones.core
   (:require
-   ;;[jade-moonstones.components.hero-ui :as hero-ui]
+   [jade-moonstones.components.chakra :refer [ChakraProvider]]
    [jade-moonstones.events :as events]
-   [jade-moonstones.music.views :as music.views]
-   [jade-moonstones.subs :as subs]
-   [jade-moonstones.visual-artist.views :as va.views]
+   [jade-moonstones.home-page :as home-page]  
    [reagent.core :as rg] 
    [reagent.dom.client :as rdc]
    [re-frame.core :as rf]))
 
- 
-(defn home-page []
-  [:div.main_container 
-   [:h1 {:style {:color "hotpink"}} @(rf/subscribe [::subs/message])]
-   #_[:div {:class "dark"}
-    [hero-ui/button {:color "primary"} "Click me!"]
-      [hero-ui/button {:color "secondary"} "Click me!"]]
-   [music.views/page]
-   [va.views/page]
-   ])
+(defn main-page []
+  (let []
+    [ChakraProvider
+     [home-page/page]]))
 
 (defonce root (delay (rdc/create-root (.getElementById js/document "app"))))
 
 ;; start is called by init and after code reloading finishes
 (defn ^:dev/after-load start []
-  (rdc/render @root [home-page]))
+  (rdc/render @root [main-page]))
 
 (defn init []
   ;; init is called ONCE when the page loads
