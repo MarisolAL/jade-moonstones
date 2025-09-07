@@ -1,0 +1,25 @@
+{
+  "name": "jade-moonstones",
+  "version": "1.0.0",
+  "description": "Jade &amp; Moon stones",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarisolAL/jade-moonstones.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarisolAL/jade-moonstones/issues"
+  },
+  "homepage": "https://github.com/MarisolAL/jade-moonstones#readme",
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "shadow-cljs": "^3.2.0"
+  }
+}
