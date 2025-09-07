@@ -1,11 +1,13 @@
 (ns jade-moonstones.core
-  (:require [jade-moonstones.components.hero-ui :as hero-ui]
-            [jade-moonstones.events :as events]
-            [jade-moonstones.subs :as subs]
-            [reagent.core :as rg]
-            [reagent.dom :as rd]
-            [reagent.dom.client :as rdc]
-            [re-frame.core :as rf]))
+  (:require
+   ;;[jade-moonstones.components.hero-ui :as hero-ui]
+   [jade-moonstones.events :as events]
+   [jade-moonstones.music.views :as music.views]
+   [jade-moonstones.subs :as subs]
+   [jade-moonstones.visual-artist.views :as va.views]
+   [reagent.core :as rg] 
+   [reagent.dom.client :as rdc]
+   [re-frame.core :as rf]))
 
  
 (defn home-page []
@@ -13,7 +15,9 @@
    [:h1 {:style {:color "hotpink"}} @(rf/subscribe [::subs/message])]
    #_[:div {:class "dark"}
     [hero-ui/button {:color "primary"} "Click me!"]
-    [hero-ui/button {:color "secondary"} "Click me!"]]
+      [hero-ui/button {:color "secondary"} "Click me!"]]
+   [music.views/page]
+   [va.views/page]
    ])
 
 (defonce root (delay (rdc/create-root (.getElementById js/document "app"))))
