@@ -1,11 +1,10 @@
-(ns jade-moonstones.music-catalog)
+(ns jade-moonstones.music.music-catalog)
 
 (def music-catalog
   [{:name "エレボス"
     :artist "EN0N"
     :year "2022"
-    :youtube-link "P9ejlUnedCQ?si=AjSovkz0RiDEOEOR"
-    :spotify-link ""}
+    :youtube-link "P9ejlUnedCQ?si=AjSovkz0RiDEOEOR"}
    {:name "On The Run"
     :artist "Empire Fall"
     :year "2024"
@@ -19,8 +18,7 @@
    {:name "Blood Diamondz"
     :artist "Sniper & Sexion D'assaut"
     :year "2011"
-    :youtube-link "Johr9g8oDq8?si=B5hVIk1AKxNYDuUe"
-    :spotify-link ""}
+    :youtube-link "Johr9g8oDq8?si=B5hVIk1AKxNYDuUe"}
    {:name "别让爱凋落"
     :artist "好听吗 & Tz安竹"
     :year "2025"
@@ -28,7 +26,7 @@
     :spotify-link "5yOcA3bDEMVu6MUjPDBEXB"}
    {:name "SAUSERYKO"
     :artist "Ashemez"
-    :year ""
+    :year "2025"
     :youtube-link "f6bdQOj9zkg?si=9nwNvLA_uEo29cG3"
     :spotify-link "7mPZAs7LUOBaLtTEUib27h"}
    {:name "662"

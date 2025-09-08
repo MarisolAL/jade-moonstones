@@ -1,6 +1,10 @@
 (ns jade-moonstones.music.views
   (:require
-   [jade-moonstones.music-catalog :as music-cat]
+   ["@chakra-ui/icons" :refer [BsThreeDotsVertical SearchIcon]]
+   ["@chakra-ui/react" :refer [Box Card CardBody CardFooter CardHeader Flex Heading IconButton Text Wrap WrapItem]]
+   [jade-moonstones.components.colors :refer [colors]]
+   [jade-moonstones.components.icon :as j-icon]
+   [jade-moonstones.music.music-catalog :as music-cat]
    [reagent.core :as rg] 
    [re-frame.core :as rf]))
 
@@ -41,7 +45,7 @@
               :allow           allow-map
               :loading         :lazy}]))
 
-(defn song-card [song]
+(defn song-card-1 [song]
   (let
       [show-yt?      (rg/atom false)
        show-spotify? (rg/atom false)]
@@ -64,10 +68,41 @@
              (if @show-spotify?
                (spotify-embed song))]])]))))
 
+(defn song-card [{:keys [name artist youtube-link spotify-link] :as song}]
+  [:> Card {:variant :filled
+            :colorScheme "pink"
+            :background-color "#F6E0CA"}
+   [:> CardHeader
+    [:> Flex {:spacing        4
+              :justifyContent "space-around"}
+     [:> Box
+      [:> Heading name]
+      [:> Text artist]]
+     [:> Box
+      (when spotify-link
+        [:> IconButton {:variant     "ghost"
+                        :colorScheme "green"
+                        :aria-label  "Spotify"
+                        :icon        (rg/as-element
+                                      [j-icon/spotify-icon {:style {:color (:keppel colors)}}])
+                        :on-click    #(println "something")}])
+      (when youtube-link
+        [:> IconButton {:variant     "ghost"
+                        :colorScheme "green"
+                        :aria-label  "Youtube"
+                        :icon        (rg/as-element
+                                      [j-icon/youtube-icon {:fill  true
+                                                            :style {:color (:indian-red colors)}}])
+                        :on-click    #(println "something")}])]]]])
+
 (defn page []
-  [:div
-   [:h2 "🎶 Music findings~"] 
-   (for [song music-cat/music-catalog]
-     ^{:key (str (:title song) "-" (:name song))} 
-     [song-card song])])
+  (let [song (music-cat/music-catalog 1)]
+    [:div.music_ui_container
+     [:> Heading "🎶 My special findings"]
+     [:> Wrap {:spacing "30px"
+               :justify "center"}
+      (for [song music-cat/music-catalog]
+        ^{:key (str (:title song) "-" (:name song))} 
+        [:> WrapItem
+         [song-card song]])]]))
 
