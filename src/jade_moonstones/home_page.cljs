@@ -1,6 +1,6 @@
 (ns jade-moonstones.home-page
   (:require
-   ["@chakra-ui/react" :refer [Container Divider Heading HStack Text]]
+   ["@chakra-ui/react" :refer [Container Heading HStack Text]]
    [jade-moonstones.components.chakra :refer [separator]]
    [jade-moonstones.events :as events]
    [jade-moonstones.music.views :as music.views]
