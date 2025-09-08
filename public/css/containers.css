@@ -29,3 +29,10 @@
     background-color: white;
     border-radius: 12px;
 }
+
+.music_ui_container {
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    align-items: center;
+}
